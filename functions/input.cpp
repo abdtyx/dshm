@@ -39,9 +39,10 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
         if (bn == 2147483647) {return;}
         v.push_back(make_pair(bn, an));
     }
-    cout << "Please name this polynomial (No space!): ";
+    cout << "Please name this polynomial (No space or keyword suck as \"back\"!): ";
     string name;
     cin >> name;
+    if (name == "back") {return;}
     while (mp.find(name) != mp.end()) {
         // invalid name
         cout << "Name exists! Please rename this polynomial: ";
@@ -56,4 +57,5 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
     sl.output();
     s.push_back(sl);
     // return sl;
+    return;
 }

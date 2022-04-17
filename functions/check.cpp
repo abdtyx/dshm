@@ -14,9 +14,14 @@
 
 using namespace std;
 
-void Check() {
+void Check(vector<slist> s, map<string, int> mp) {
     if (debug) {
         cout << "This is check." << endl;
         return;
     }
+    for (auto key : mp) {
+        cout << key.first << '\t';
+        s[key.second].output();
+    }
+    return;
 }

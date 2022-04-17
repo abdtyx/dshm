@@ -63,16 +63,16 @@ int main() {
                 Output(s, mp);
                 break;
             case 3:
-                Plus(s, mp);
+                Plus(s, mp, ctr);
                 break;
             case 4:
-                Minus();
+                Minus(s, mp, ctr);
                 break;
             case 5:
-                Calculate();
+                Calculate(s, mp);
                 break;
             case 6:
-                Check();
+                Check(s, mp);
                 break;
             case 7:
                 exit(0);

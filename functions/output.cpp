@@ -26,6 +26,7 @@ void Output(vector<slist> s, map<string, int> mp) {
     while (mp.find(name) == mp.end()) {
         cout << "Polynomial doesn't exist! Please try again: ";
         cin >> name;
+        if (name == "back") {return;}
     }
     s[mp[name]].output();
     return;
