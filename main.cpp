@@ -6,6 +6,10 @@
 #define debug true
 #endif
 
+#ifndef _QUICK_H
+#include "./class/quick.h"
+#endif
+
 #ifndef _INPUT_CPP
 #include "./functions/input.cpp"
 #endif
@@ -43,7 +47,7 @@ int main() {
         int choice;
         Menu();
         cout << "Please input your choice (a integer varies from 1 to 7): ";
-        cin >> choice;
+        choice = Read<int>();
         switch (choice) {
             case 1:
                 Input();
@@ -66,6 +70,8 @@ int main() {
             case 7:
                 exit(0);
                 break;
+            case 99:
+                continue;
             default:
                 cout << "You have input an invalid parameter! Please try again." << endl;
                 Sleep(1000);
