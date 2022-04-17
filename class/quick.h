@@ -61,30 +61,38 @@ bool ck(char ch) {
                             ch = getchar();
                             if (ch == 'e') {
                                 ch = getchar();
-                                if (ch == 'h') {
+                                if (ch == 's') {
                                     ch = getchar();
-                                    if (ch == 'y') {
+                                    if (ch == 'h') {
                                         ch = getchar();
-                                        if (ch == '&') {
+                                        if (ch == 'y') {
                                             ch = getchar();
-                                            if (ch == 'h') {
+                                            if (ch == '&') {
                                                 ch = getchar();
-                                                if (ch == 'y') {
+                                                if (ch == 'h') {
                                                     ch = getchar();
-                                                    if (ch == 'l') {
+                                                    if (ch == 'y') {
                                                         ch = getchar();
-                                                        if (ch == 'o') {
+                                                        if (ch == 'l') {
                                                             ch = getchar();
-                                                            if (ch == 'v') {
+                                                            if (ch == 'o') {
                                                                 ch = getchar();
-                                                                if (ch == 'e') {
+                                                                if (ch == 'v') {
                                                                     ch = getchar();
-                                                                    if (ch == 't') {
+                                                                    if (ch == 'e') {
                                                                         ch = getchar();
-                                                                        if (ch == 'y') {
+                                                                        if (ch == 's') {
                                                                             ch = getchar();
-                                                                            if (ch == 'x') {
-                                                                                return true;
+                                                                            if (ch == 't') {
+                                                                                ch = getchar();
+                                                                                if (ch == 'y') {
+                                                                                    ch = getchar();
+                                                                                    if (ch == 'x') {
+                                                                                        return true;
+                                                                                    }
+                                                                                    else return false;
+                                                                                }
+                                                                                else return false;
                                                                             }
                                                                             else return false;
                                                                         }
