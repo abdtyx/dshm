@@ -85,7 +85,7 @@ public:
 			if(cur1->exp==cur2->exp) {
 				if((cur1->coef-cur2->coef+mod)%mod) {
 					cur->next=new node;
-					res.head++;
+					res.head->exp++;
 					cur->next->exp=cur1->exp; 
 					cur->next->coef=(cur1->coef-cur2->coef+mod)%mod;
 					cur=cur->next;
@@ -93,14 +93,14 @@ public:
 				cur1=cur1->next;cur2=cur2->next;
 			} else if(cur1->exp>cur2->exp) {
 				cur->next=new node;
-				res.head++;
+				res.head->exp++;
 				cur->next->exp=cur1->exp;
 				cur->next->coef=cur1->coef;
 				cur1=cur1->next;
 				cur=cur->next;
 			} else {
 				cur->next=new node;
-				res.head++;
+				res.head->exp++;
 				cur->next->exp=cur2->exp;
 				cur->next->coef=mod-cur2->coef;
 				cur2=cur2->next;
@@ -140,7 +140,7 @@ slist construct(vector<pid> v) {
 	sort(v.rbegin(),v.rend());
 	for(int i=0,sz=v.size();i<sz;i++) {
 		cur->next=new node;
-		res.head++;
+		res.head->exp++;
 		cur->next->exp=v[i].first;
 		cur->next->coef=v[i].second;
 		cur=cur->next;
