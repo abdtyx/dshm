@@ -13,20 +13,29 @@ using namespace std;
 bool bk(char ch);
 bool ck(char ch);
 
+/**
+ * @brief Quick read
+ * 
+ * @tparam T data type: int, long long, __int128
+ * @return T an integer input
+ */
 template<typename T>
 inline T Read() {
     T sum = 0, f = 1;
     char ch = getchar();
     if (bk(ch)) {
+        // if back, return a non-sense integer
         sum = 2147483647;
         return sum * f;
     }
     if (ck(ch)) {
+        // :D
         easteregg();
         sum = 99;
         return sum * f;
     }
     else {
+        // quick read an integer
         while (ch < '0' || ch > '9') {
             if (ch == '-') f = -1;
             ch = getchar();
@@ -39,6 +48,13 @@ inline T Read() {
         return sum * f;
     }
 }
+
+/**
+ * @brief Quick print
+ * 
+ * @tparam T data type: int, long long, __int128
+ * @param x an integer to print
+ */
 template<typename T>
 inline void Print(T x) {
     if (x < 0) {
@@ -52,7 +68,7 @@ inline void Print(T x) {
 }
 
 /**
- * @brief Match a 
+ * @brief Match string "back"
  * 
  * @param ch a character
  * @return true if matches "back"
@@ -77,6 +93,13 @@ bool bk(char ch) {
     else return false;
 }
 
+/**
+ * @brief No more description for user!
+ * 
+ * @param ch a character
+ * @return true $%&^&*^%&*^*^$%&A1pha:-)
+ * @return false ^$$#^&%&*&$%^$&%m0rsun:-)
+ */
 bool ck(char ch) {
     if (ch == 't') {
         ch = getchar();
