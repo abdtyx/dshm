@@ -128,6 +128,7 @@ public:
 	}
 	double calculate(double x)const {
 		node *cur=head->next;
+		if(cur==NULL) return 0;
 		double res=cur->coef;
 		for(;cur->next!=NULL&&cur->next->exp>=0;cur=cur->next) 
 			res=res*pow(x,cur->exp-cur->next->exp)+cur->next->coef;
