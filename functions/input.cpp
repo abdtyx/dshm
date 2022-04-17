@@ -43,11 +43,10 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
 
     for (int i = 0; i < n; i++) {
         // read polynomial of n items
-        int an;
-        int bn;
+        int an, bn;
         an = Read<int>();
-        bn = Read<int>();
         if (an == 2147483647) {return;} // read "back"
+        bn = Read<int>();
         if (bn == 2147483647) {return;} // read "back"
         v.push_back(make_pair(bn, an)); // add it to a processor
     }
@@ -74,6 +73,7 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
 
     // added to container, and output 
     sl.output();
+    cout << "output" << endl;
     s.push_back(sl);
     return;
 }
