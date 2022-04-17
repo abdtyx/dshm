@@ -3,7 +3,7 @@
 #endif
 
 #ifndef debug
-#define debug false
+#define debug true
 #endif
 
 #ifndef _INPUT_CPP
@@ -31,22 +31,56 @@
 #endif
 
 #include "./include/stdc++.h"
+#include "./include/Windows.h"
 
 using namespace std;
 
-void menu();
+void Menu();
 
 int main() {
     cout << "--------------------------Welcome to PCTH(polynomial calculator by tyx&hy)--------------------------" << endl;
     while (1) {
         int choice;
-        menu();
+        Menu();
         cout << "Please input your choice (a integer varies from 1 to 7): ";
         cin >> choice;
+        switch (choice) {
+            case 1:
+                Input();
+                break;
+            case 2:
+                Output();
+                break;
+            case 3:
+                Plus();
+                break;
+            case 4:
+                Minus();
+                break;
+            case 5:
+                Calculate();
+                break;
+            case 6:
+                Check();
+                break;
+            case 7:
+                exit(0);
+                break;
+            default:
+                cout << "You have input an invalid parameter! Please try again." << endl;
+                Sleep(1000);
+        }
     }
     return 0;
 }
 
-void menu() {
+void Menu() {
     cout << "---This is a function menu---" << endl;
+    cout << "1: Input a polynomial." << endl;
+    cout << "2: Output a polynomial." << endl;
+    cout << "3: Add two polynomials." << endl;
+    cout << "4: Subtract two polynomials." << endl;
+    cout << "5: Evaluate the polynomial at x." << endl;
+    cout << "6: Check all polynomials." << endl;
+    cout << "7: Exit" << endl;
 }

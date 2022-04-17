@@ -5,3 +5,14 @@
 #ifndef debug
 #define debug false
 #endif
+
+#include "../include/stdc++.h"
+
+using namespace std;
+
+void Calculate() {
+    if (debug) {
+        cout << "This is calculate." << endl;
+        return;
+    }
+}

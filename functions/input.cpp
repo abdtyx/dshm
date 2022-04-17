@@ -10,3 +10,9 @@
 
 using namespace std;
 
+void Input() {
+    if (debug) {
+        cout << "This is input." << endl;
+        return;
+    }
+}

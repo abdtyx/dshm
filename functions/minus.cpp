@@ -5,3 +5,14 @@
 #ifndef debug
 #define debug false
 #endif
+
+#include "../include/stdc++.h"
+
+using namespace std;
+
+void Minus() {
+    if (debug) {
+        cout << "This is minus." << endl;
+        return;
+    }
+}
