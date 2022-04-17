@@ -73,7 +73,6 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
 
     // added to container, and output 
     sl.output();
-    cout << "output" << endl;
     s.push_back(sl);
     return;
 }
