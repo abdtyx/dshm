@@ -43,10 +43,11 @@ void Input(vector<slist>& s, map<string, int>& mp, int& ctr) {
 
     for (int i = 0; i < n; i++) {
         // read polynomial of n items
-        double an;
+        int an;
         int bn;
-        cin >> an;
+        an = Read<int>();
         bn = Read<int>();
+        if (an == 2147483647) {return;} // read "back"
         if (bn == 2147483647) {return;} // read "back"
         v.push_back(make_pair(bn, an)); // add it to a processor
     }
