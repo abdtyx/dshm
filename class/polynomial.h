@@ -135,7 +135,6 @@ public:
 };
 
 slist construct(vector<pid> v) {
-	cout<<"?"<<endl;
 	slist res;
 	node *cur=res.head;
 	sort(v.rbegin(),v.rend());
