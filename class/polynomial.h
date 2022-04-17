@@ -38,46 +38,92 @@ public:
 	}
 	slist operator + (const slist &b) const {
 		slist res;
-		node* cur1=head->next,*cur2=b.head->next;
+		node* cur1=head->next,*cur2=b.head->next,*cur=res.head;
 		while(cur1!=NULL&&cur2!=NULL) {
 			if(cur1->exp==cur2->exp) {
-				if(cur1->coef+cur2->coef) 
-					res.insert(cur1->exp,cur1->coef+cur2->coef);
+				if(cur1->coef+cur2->coef) {
+					cur->next=new node;
+					res.head->exp++;
+					cur->next->exp=cur1->exp;
+					cur->next->coef=cur1->coef+cur2->coef;
+					cur=cur->next;
+				}
 				cur1=cur1->next;cur2=cur2->next;
 			} else if(cur1->exp>cur2->exp) {
-				res.insert(cur1->exp,cur1->coef);
+				cur->next=new node;
+				res.head->exp++;
+				cur->next->exp=cur1->exp;
+				cur->next->coef=cur1->coef;
 				cur1=cur1->next;
+				cur=cur->next;
 			} else {
-				res.insert(cur2->exp,cur2->coef);
+				cur->next=new node;
+				res.head->exp++;
+				cur->next->exp=cur2->exp;
+				cur->next->coef=cur2->coef;
 				cur2=cur2->next;
+				cur=cur->next;
 			}
 		} 
-		for(;cur1;cur1=cur1->next) 
-			res.insert(cur1->exp,cur1->coef);
-		for(;cur2;cur2=cur2->next)
-			res.insert(cur2->exp,cur2->coef);
+		for(;cur1;cur1=cur1->next) {
+			cur->next=new node;
+			res.head->exp++;
+			cur->next->exp=cur1->exp;
+			cur->next->coef=cur1->coef;
+			cur=cur->next;
+		}
+		for(;cur2;cur2=cur2->next){
+			cur->next=new node;
+			res.head->exp++;
+			cur->next->exp=cur2->exp;
+			cur->next->coef=cur2->coef;
+			cur=cur->next;
+		}
 		return res;
 	}
 	slist operator - (const slist &b) const {
 		slist res;
-		node* cur1=head->next,*cur2=b.head->next;
+		node* cur1=head->next,*cur2=b.head->next,*cur=res.head;
 		while(cur1!=NULL&&cur2!=NULL) {
 			if(cur1->exp==cur2->exp) {
-				if(cur1->coef-cur2->coef) 
-					res.insert(cur1->exp,cur1->coef-cur2->coef);
+				if(cur1->coef-cur2->coef) {
+					cur->next=new node;
+					res.head->exp++;
+					cur->next->exp=cur1->exp;
+					cur->next->coef=cur1->coef-cur2->coef;
+					cur=cur->next;
+				}
 				cur1=cur1->next;cur2=cur2->next;
 			} else if(cur1->exp>cur2->exp) {
-				res.insert(cur1->exp,cur1->coef);
+				cur->next=new node;
+				res.head->exp++;
+				cur->next->exp=cur1->exp;
+				cur->next->coef=cur1->coef;
 				cur1=cur1->next;
+				cur=cur->next;
 			} else {
-				res.insert(cur2->exp,-cur2->coef);
+				cur->next=new node;
+				res.head->exp++;
+				cur->next->exp=cur2->exp;
+				cur->next->coef=-cur2->coef;
 				cur2=cur2->next;
+				cur=cur->next;
 			}
 		} 
-		for(;cur1;cur1=cur1->next) 
-			res.insert(cur1->exp,cur1->coef);
-		for(;cur2;cur2=cur2->next)
-			res.insert(cur2->exp,-cur2->coef);
+		for(;cur1;cur1=cur1->next) {
+			cur->next=new node;
+			res.head->exp++;
+			cur->next->exp=cur1->exp;
+			cur->next->coef=cur1->coef;
+			cur=cur->next;
+		}
+		for(;cur2;cur2=cur2->next){
+			cur->next=new node;
+			res.head->exp++;
+			cur->next->exp=cur2->exp;
+			cur->next->coef=-cur2->coef;
+			cur=cur->next;
+		}
 		return res;
 	}
 	double calculate(double x)const {
@@ -90,12 +136,20 @@ public:
 			res+=pow(x,cur->exp)*cur->coef;
 		return res;
 	}
+	friend slist construct(vector<pid> v);
 };
 
-	slist construct(vector<pid> v) {
+ slist construct(vector<pid> v) {
 		slist res;
-		for(int i=0,sz=v.size();i<sz;i++) 
-			res.insert(v[i].first,v[i].second);
+		node * cur=res.head;
+		sort(v.rbegin(),v.rend());
+		for(int i=0,sz=v.size();i<sz;i++) {
+			cur->next=new node;
+			res.head->exp++;
+			cur->next->exp=v[i].first;
+			cur->next->coef=v[i].second;
+			cur=cur->next;
+		} 
 		return res;
 	}
 
