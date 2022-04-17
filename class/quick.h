@@ -51,6 +51,13 @@ inline void Print(T x) {
     putchar(x % 10 + '0');
 }
 
+/**
+ * @brief Match a 
+ * 
+ * @param ch a character
+ * @return true if matches "back"
+ * @return false if not matches
+ */
 bool bk(char ch) {
     if (ch == 'b') {
         ch = getchar();
