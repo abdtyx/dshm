@@ -3,11 +3,15 @@
 #endif
 
 #ifndef debug
-#define debug true
+#define debug false
 #endif
 
 #ifndef _QUICK_H
 #include "./class/quick.h"
+#endif
+
+#ifndef _POLYNOMIAL_H
+#include "./class/polynomial.h"
 #endif
 
 #ifndef _INPUT_CPP
@@ -42,6 +46,9 @@ using namespace std;
 void Menu();
 
 int main() {
+    int ctr = 0;
+    map<string, int> mp;
+    vector<slist> s;
     cout << "--------------------------Welcome to PCTH(polynomial calculator by tyx&hy)--------------------------" << endl;
     while (1) {
         int choice;
@@ -50,13 +57,13 @@ int main() {
         choice = Read<int>();
         switch (choice) {
             case 1:
-                Input();
+                Input(s, mp, ctr);
                 break;
             case 2:
-                Output();
+                Output(s, mp);
                 break;
             case 3:
-                Plus();
+                Plus(s, mp);
                 break;
             case 4:
                 Minus();
@@ -89,4 +96,5 @@ void Menu() {
     cout << "5: Evaluate the polynomial at x." << endl;
     cout << "6: Check all polynomials." << endl;
     cout << "7: Exit" << endl;
+    cout << "Tip: If you are stuck in one of the functions, try input \"back\" to go back." << endl;
 }

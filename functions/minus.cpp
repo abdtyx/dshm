@@ -2,6 +2,10 @@
 #define _MINUS_CPP
 #endif
 
+#ifndef _POLYNOMIAL_H
+#include "../class/polynomial.h"
+#endif
+
 #ifndef debug
 #define debug false
 #endif

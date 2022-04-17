@@ -10,12 +10,17 @@
 
 using namespace std;
 
+bool bk(char ch);
 bool ck(char ch);
 
 template<typename T>
 inline T Read() {
     T sum = 0, f = 1;
     char ch = getchar();
+    if (bk(ch)) {
+        sum = 2147483647;
+        return sum * f;
+    }
     if (ck(ch)) {
         easteregg();
         sum = 99;
@@ -44,6 +49,25 @@ inline void Print(T x) {
         print(x / 10);
     }
     putchar(x % 10 + '0');
+}
+
+bool bk(char ch) {
+    if (ch == 'b') {
+        ch = getchar();
+        if (ch == 'a') {
+            ch = getchar();
+            if (ch == 'c') {
+                ch = getchar();
+                if (ch == 'k') {
+                    return true;
+                }
+                else return false;
+            }
+            else return false;
+        }
+        else return false;
+    }
+    else return false;
 }
 
 bool ck(char ch) {
