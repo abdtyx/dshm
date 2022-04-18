@@ -23,7 +23,7 @@ void easteregg() {
         system("color 0c");
         putchar('\n');
     }
-    cout << "TangYuxiao has a warm heart." << endl << "So do HanYang" << endl;
+    cout << "TangYuxiao has a warm heart." << endl << "So do HanYang." << endl;
     // What the f**k is this? I don't know. May be you should try it yourself and see what's happening.
     return;
     // TangYuxiao has a warm heart.
