@@ -39,7 +39,7 @@
 #endif
 
 #include "./include/stdc++.h"
-// #include "./include/Windows.h"
+#include "./include/Windows.h"
 
 using namespace std;
 
@@ -92,8 +92,8 @@ int main() {
             default:
                 // wrong param
                 cout << "You have input an invalid parameter! Please try again." << endl;
-                // only for windows, need windows.h
-                // Sleep(1000);
+                // only for windows, need Windows.h
+                Sleep(1000);
         }
     }
     return 0;
