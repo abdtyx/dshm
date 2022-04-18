@@ -39,11 +39,12 @@
 #endif
 
 #include "./include/stdc++.h"
-#include "./include/Windows.h"
+// #include "./include/Windows.h"
 
 using namespace std;
 
 void Menu();
+void Sleep(int sec);
 
 int main() {
     int ctr = 0;    // how many polynomials now
@@ -93,7 +94,8 @@ int main() {
                 // wrong param
                 cout << "You have input an invalid parameter! Please try again." << endl;
                 // only for windows, need Windows.h
-                Sleep(1000);
+                // Sleep(1000);
+                Sleep(1);
         }
     }
     return 0;
@@ -113,4 +115,19 @@ void Menu() {
     cout << "6: Evaluate the polynomial at x." << endl;
     cout << "7: Exit" << endl;
     cout << "Tip: If you are stuck in one of the functions, try input \"back\" to go back." << endl;
+}
+
+/**
+ * @brief Pause program for @sec seconds.
+ * 
+ * @param sec sleep seconds
+ */
+void Sleep(int sec) {
+    clock_t start, finish;
+    start = clock();
+    while (1) {
+        finish = clock();
+        double duration = (double)(finish - start) / CLOCKS_PER_SEC;
+        if ((int)duration == sec) {return;}
+    }
 }
